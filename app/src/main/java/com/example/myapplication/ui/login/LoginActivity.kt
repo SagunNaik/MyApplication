@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.login
 
 import android.app.Activity
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.text.Editable
 import android.text.Spannable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.Button
@@ -18,6 +20,7 @@ import android.widget.ProgressBar
 import android.widget.Toast
 
 import com.example.myapplication.R
+import com.example.myapplication.Signup as Signup::class.java
 
 class LoginActivity : AppCompatActivity() {
 
@@ -100,7 +103,13 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        signup.movementMethod
+       signup.setOnClickListener(View.OnClickListener{
+           Log.w("Intent Call","SignUP")
+           val intent = Intent(this, Signup::class.java)
+               startActivity(intent)
+           finish()
+       }
+       )
          //signup.setOnClickListener {
           //   Toast.makeText(this,"Link Click",Toast.LENGTH_LONG)
        //  }
