@@ -8,7 +8,6 @@ import android.os.Bundle
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import android.text.Editable
-import android.text.Spannable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
@@ -20,7 +19,7 @@ import android.widget.ProgressBar
 import android.widget.Toast
 
 import com.example.myapplication.R
-import com.example.myapplication.Signup as Signup::class.java
+import com.example.myapplication.Signup
 
 class LoginActivity : AppCompatActivity() {
 
@@ -105,8 +104,9 @@ class LoginActivity : AppCompatActivity() {
 
        signup.setOnClickListener(View.OnClickListener{
            Log.w("Intent Call","SignUP")
-           val intent = Intent(this, Signup::class.java)
-               startActivity(intent)
+           Intent(this, Signup).apply {
+               startActivity(this)
+           }
            finish()
        }
        )
